@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const SignUpStyle = styled.div`
+type Props = {
+    validEmail: boolean
+    matchPassword: boolean
+}
+
+export const SignUpStyle = styled.div<Props>`
 
     @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Dancing+Script&family=Open+Sans:wght@300&family=Rubik+Dirt&display=swap');
 
@@ -77,14 +82,22 @@ export const SignUpStyle = styled.div`
             cursor: pointer;
             background: linear-gradient(90deg, rgba(182,0,0,0.4522613065326633) 0%, rgba(80,78,0,1) 57%, rgba(0,0,0,1) 85%);
         }
-        
+
+        .emailValidation, .passwordValidation {
+             font-weight: bolder;
+             font-size: 0.6em;
+             margin-top: 0;
+             padding-top: 0;
+        }
+
+        .emailValidation {
+            color: ${props => props.validEmail ? 'green' : 'red'};
+        }
+
+        .passwordValidation {
+            color: ${props => props.matchPassword ? 'green' : 'red'}
+        }
+
     }
-
-
 }
-
-
-
-
-
 `
