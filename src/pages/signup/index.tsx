@@ -26,6 +26,10 @@ export const SignUP = () => {
         navigate(-1)
     }
 
+    const createACount = () => {
+
+    }
+
     return (
         <SignUpStyle>
             
@@ -47,7 +51,7 @@ export const SignUP = () => {
                         <input type="password" name="password" id="repeatPassword" onChange={handleRepPassword} /><br />
                         <label htmlFor="senha">repetir senha</label>
                     </div>
-                    <input type="button" value="Criar conta" id="createAnAccount" />
+                    <input type="button" value="Criar conta" id="createCount" onClick={createACount}/>
                 </form>
                 
             </div> 
