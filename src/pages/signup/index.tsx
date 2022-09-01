@@ -27,8 +27,10 @@ export const SignUP = () => {
     }
 
     const createACount = () => {
-
-    }
+        if(!email || !password || !repPassword) alert('Todos os campos devem estar preenchidos ')
+        else if()
+        else if(password !== repPassword) alert('As senhas devem ser iguai')
+    } 
 
     return (
         <SignUpStyle>
