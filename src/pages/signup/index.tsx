@@ -39,7 +39,7 @@ export const SignUP = () => {
         if(!email || !password || !repPassword) alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
             try {
-                let response = await fetch('https://teppaaplication.herokuapp.com/ping', {
+                let response = await fetch('https://teppaaplication.herokuapp.com', {
                     method: 'POST',
                     body: JSON.stringify({
                         email: email,
