@@ -1,6 +1,5 @@
 import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
-import { Link } from "react-router-dom"
 import React, { useEffect, useState } from "react"
 
 export const SignUP = () => {
@@ -36,8 +35,28 @@ export const SignUP = () => {
         navigate(-1)
     }
 
-    const createACount = () => {
+    const createACount = async () => {
         if(!email || !password || !repPassword) alert('Todos os campos devem estar preenchidos ')
+        if(emailValidation && matchPassword) {
+            try {
+                let response = await fetch('https://teppaaplication.herokuapp.com/ping', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    }),
+                    headers: {
+                        'content-type' : 'application/json'
+                    }
+                })
+
+
+            } catch {
+                alert('error')
+            }
+        }
+
+   
     } 
 
     return (
