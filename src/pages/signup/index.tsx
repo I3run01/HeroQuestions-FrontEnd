@@ -2,12 +2,19 @@ import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
 import React, { useEffect, useState } from "react"
 
+type jsonStatusType = {
+    response?: string
+    status: boolean
+}
+
 export const SignUP = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [repPassword, setRepPasswprd] = useState<string>('')
     const [emailValidation, setEmailValidation] = useState<boolean>(false)
     const [matchPassword, setMatchPassword] = useState<boolean>(false)
+    const [jsonStatus, setJsonStatus] = useState<jsonStatusType>({status:false})
+
 
     useEffect(() => {
         email.indexOf('@') > 0 ? setEmailValidation(true) : setEmailValidation(false)
@@ -39,9 +46,7 @@ export const SignUP = () => {
         if(!email || !password || !repPassword) alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
             try {
-                let response = await fetch('https://teppaaplication.herokuapp.com/ping', 
-                //let jsopn  = await response.json()
-                /*
+                let response = await fetch('https://teppaaplication.herokuapp.com/register',
                 {
                     method: 'POST',
                     body: JSON.stringify({
@@ -49,11 +54,13 @@ export const SignUP = () => {
                         password: password
                     }),
                     headers: {
-                        'content-type' : 'application/json'
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     }
                 })
-                */
 
+                let json = await response.json()
+                setJsonStatus(json)
+                setTimeout(()=>console.log(jsonStatus.status, jsonStatus.response ), 2000)
 
             } catch {
                 alert('error')
