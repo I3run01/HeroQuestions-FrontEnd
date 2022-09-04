@@ -49,13 +49,17 @@ export const SignUP = () => {
                 let response = await fetch('https://teppaaplication.herokuapp.com/register',
                 {
                     method: 'POST',
-                    body: JSON.stringify({
-                        email: email,
-                        password: password
+                    body: new URLSearchParams ({
+                        'email': email,
+                        'password': password,
                     }),
+                    //body: JSON.stringify({
+                        //'email': email,
+                        //'password': password
+                   // }),
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    }
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                    },
                 })
 
                 let json = await response.json()
