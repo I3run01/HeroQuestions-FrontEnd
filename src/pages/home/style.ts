@@ -52,22 +52,36 @@ export const HomeStyle = styled.div`
         justify-content: end;
 
         a {
+            position: relative;
             text-decoration: none;
             font-family: 'Aboreto', cursive;
             color: black;
             font-weight: bolder;
             font-size: 1.2em;
+            
+            ::after {
+                content: '';
+                height: 4px;
+                width: 0%;
+                background: red;
+                display: block;
+                transition: 0.3s;    
+            }
+
+            :hover::after {
+                width: 100%;
+            }
+
+            
         }
+
+        
 
         #signup {
             margin-left: 20px;
         }
+    
+
     }
-
 }
-
-
-
-
-
 `

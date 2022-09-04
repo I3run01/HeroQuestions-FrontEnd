@@ -32,7 +32,6 @@ export const SignUpStyle = styled.div<Props>`
     padding: 20px;
     background: rgba(255, 255, 255, 0.12);
 
-
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.70);
     border-radius: 16px;
@@ -42,7 +41,7 @@ export const SignUpStyle = styled.div<Props>`
     border: 1px solid rgba(255, 255, 255, 1);
     
     #backbutton {
-        display: flex;
+        margin-top: 30px;
         text-decoration: none;
         font-family: 'Aboreto', cursive;
         color: black;
@@ -52,7 +51,20 @@ export const SignUpStyle = styled.div<Props>`
         background: none;
         cursor: pointer;
         margin-left: 70%;
-        height: 70px;
+
+        ::after {
+            content: '';
+            height: 4px;
+            width: 0%;
+            background: red;
+            display: block;
+            transition: 0.3s;
+        }
+
+        :hover::after {
+            width: 100%;
+        }
+
         
     }
 
