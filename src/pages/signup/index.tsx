@@ -53,10 +53,6 @@ export const SignUP = () => {
                         'email': email,
                         'password': password,
                     }),
-                    //body: JSON.stringify({
-                        //'email': email,
-                        //'password': password
-                   // }),
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                     },
