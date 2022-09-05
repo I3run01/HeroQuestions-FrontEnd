@@ -59,9 +59,9 @@ export const SignUP = () => {
                 let json = await response.json()
 
                 if(json.status) {
-                    alert('Usuário criado')
                     console.log(json)
                     localStorage.setItem('token', json.token)
+                    navigate('/main')
                 } else { 
                     if(json.response === 'user already exists') alert('usuário já existe')
                     else if(json.response === 'E-mail or password not sent') alert('E-mail ou senha não enviados')
