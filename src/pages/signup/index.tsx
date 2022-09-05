@@ -8,6 +8,7 @@ type jsonStatusType = {
 }
 
 export const SignUP = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [repPassword, setRepPasswprd] = useState<string>('')
@@ -35,8 +36,6 @@ export const SignUP = () => {
     const handleRepPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRepPasswprd(event.target.value)
     }
-
-    const navigate = useNavigate()
 
     const handlebackbutton = () => {
         navigate(-1)
