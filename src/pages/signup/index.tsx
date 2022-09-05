@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 
 type jsonStatusType = {
     response?: string
+    token?:string
     status: boolean
 }
 
@@ -58,6 +59,10 @@ export const SignUP = () => {
                 })
 
                 let json = await response.json()
+
+                if(json.status) {
+                    alert('Usuário criado')
+                }
                 setJsonStatus(json)
                 setTimeout(()=>console.log(jsonStatus.status, jsonStatus.response ), 2000)
 
