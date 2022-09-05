@@ -11,24 +11,17 @@ export const SignUpStyle = styled.div<Props>`
 
     height: 100vh;
     padding-top: 50px;
-
     background-image: url('images/TrinitySignUp.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 
 
 #container {
-
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-
+    position: relative;
     transform: translateX(-50%);
     left: 50%;
     width: 500px;
-    height: 300px;
+    height: 350px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.12);
 
@@ -41,7 +34,7 @@ export const SignUpStyle = styled.div<Props>`
     border: 1px solid rgba(255, 255, 255, 1);
     
     #backbutton {
-        margin-top: 30px;
+        position: absolute;
         text-decoration: none;
         font-family: 'Aboreto', cursive;
         color: black;
@@ -50,7 +43,8 @@ export const SignUpStyle = styled.div<Props>`
         border: none;
         background: none;
         cursor: pointer;
-        margin-left: 70%;
+        top: 10px;
+        right: 10px;
 
         ::after {
             content: '';
@@ -69,13 +63,14 @@ export const SignUpStyle = styled.div<Props>`
     }
 
     form {
-        height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         font-family: 'Aboreto', cursive;
         text-align: left;
         font-size: 1.2em;
+        align-items: center;
+        
 
         #email, #password, #repeatPassword {
             border: none;
@@ -86,7 +81,7 @@ export const SignUpStyle = styled.div<Props>`
             background: none;
         }
 
-        #createAnAccount {
+        #createAccountBTN {
             color: white;
             margin-top: 30px;
             font-family: 'Aboreto', cursive;

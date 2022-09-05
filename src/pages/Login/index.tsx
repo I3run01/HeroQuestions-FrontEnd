@@ -19,7 +19,7 @@ export const Login = () => {
         navigate(-1)
     }
 
-    const createACount = async () => {
+    const Login = async () => {
         try {
             let response = await fetch('https://teppaaplication.herokuapp.com/login',
             {
@@ -50,8 +50,20 @@ export const Login = () => {
 
     return (
         <LoginStyle>
-            <label htmlFor="Login"></label>
-            <input type="text" /> E-mail
+            <div id="container">
+                <button id="backbutton" onClick={handlebackbutton}>Voltar</button>
+                <form action="">
+                    <div>
+                        <label htmlFor="E-mail">E-mail</label><br />
+                        <input type="text" id="email" onChange={handleEmail} /><br />
+                    </div>
+                    <div>
+                        <label htmlFor="senha">senha</label> <br />
+                        <input type="password" name="password" id="password" onChange={handlePassword} /><br /> 
+                    </div>
+                    <input type="button" value="Criar conta" id="Login" onClick={Login}/>
+                </form>
+            </div> 
         </LoginStyle>
     )
 }
