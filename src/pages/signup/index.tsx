@@ -70,7 +70,9 @@ export const SignUP = () => {
         <SignUpStyle
         validEmail={emailValidation}
         matchPassword={matchPassword}>
-            <div id="container">   
+            <div id="container">
+                
+            <button id="backbutton" onClick={handlebackbutton}>Voltar</button> 
 
                 <form action="">
                     <div>
@@ -107,7 +109,7 @@ export const SignUP = () => {
                     <input type="button" value="Criar conta" id="createAccountBTN" onClick={createACount}/>
                 </form>
 
-                <button id="backbutton" onClick={handlebackbutton}>Voltar</button>
+                
                 
             </div> 
         </SignUpStyle>
