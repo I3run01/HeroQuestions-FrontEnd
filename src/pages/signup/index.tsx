@@ -15,8 +15,6 @@ export const SignUP = () => {
     const [repPassword, setRepPasswprd] = useState<string>('')
     const [emailValidation, setEmailValidation] = useState<boolean>(false)
     const [matchPassword, setMatchPassword] = useState<boolean>(false)
-    const [jsonStatus, setJsonStatus] = useState<jsonStatusType>({status:false})
-
 
     useEffect(() => {
         email.indexOf('@') > 0 ? setEmailValidation(true) : setEmailValidation(false)
@@ -43,7 +41,7 @@ export const SignUP = () => {
     }
 
     const createACount = async () => {
-        if(!email || !password || !repPassword) alert('Todos os campos devem estar preenchidos ')
+        if(!email || !password || !repPassword) return alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
             try {
                 let response = await fetch('https://teppaaplication.herokuapp.com/register',
@@ -62,16 +60,16 @@ export const SignUP = () => {
 
                 if(json.status) {
                     alert('Usuário criado')
+                    console.log(json)
+                    localStorage.setItem('token', json.token)
+                } else { 
+                    if(json.response === 'user already exists') alert('usuário já existe')
+                    else if(json.response === 'E-mail or password not sent') alert('E-mail ou senha não enviados')
                 }
-                setJsonStatus(json)
-                setTimeout(()=>console.log(jsonStatus.status, jsonStatus.response ), 2000)
-
-            } catch {
-                alert('error')
+            } catch (e) {
+                alert('erro ao criar um usuário')
             }
         }
-
-   
     } 
 
     return (
