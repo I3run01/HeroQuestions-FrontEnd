@@ -39,12 +39,9 @@ export const Login = () => {
                 console.log(json)
                 localStorage.setItem('token', json.token)
                 navigate('/main')
-            } else { 
-                if(json.response === 'user already exists') alert('usuário já existe')
-                else if(json.response === 'E-mail or password not sent') alert('E-mail ou senha não enviados')
-            }
+            } else alert('Usuário/senha incorreto(s)')
         } catch (e) {
-            alert('erro ao criar um usuário')
+            alert('erro ao logar')
         }
     } 
 
@@ -61,7 +58,7 @@ export const Login = () => {
                         <label htmlFor="senha">senha</label> <br />
                         <input type="password" name="password" id="password" onChange={handlePassword} /><br /> 
                     </div>
-                    <input type="button" value="Criar conta" id="Login" onClick={Login}/>
+                    <input type="button" value="Logar" id="Login" onClick={Login}/>
                 </form>
             </div> 
         </LoginStyle>
