@@ -2,12 +2,6 @@ import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
 import React, { useEffect, useState } from "react"
 
-type jsonStatusType = {
-    response?: string
-    token?:string
-    status: boolean
-}
-
 export const SignUP = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState<string>('')
