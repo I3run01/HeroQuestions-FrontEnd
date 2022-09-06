@@ -25,9 +25,6 @@ export const Login = () => {
 
         if(json.status) {
             console.log(json)
-
-            
-
             navigate('/main')
         } else alert('Usuário/senha incorreto(s)')
     } 
