@@ -1,19 +1,17 @@
-import { reducerActionType } from "../Types/reducersActions";
+import { reducerActionType } from "../types/reducerActionsType";
 
-export type AuthType = {
-    status: Object | null
+export type userType = {
+    user: object | null
 }
 
-export const authInitialStatus: AuthType = {
-    status: null
+export const userInicialState: userType = {
+    user: null
 }
 
-
-export const authReducer = (state: AuthType, action: reducerActionType) => {
-
+export const userReducer = (state: userType, action: reducerActionType) => {
     switch(action.type) {
-        case 'CHANGE_STATUS':
-            return {...state,  status: action.payload.status}
+        case 'CHANGE_USER':
+            return {...state, user: action.payload.user}
         break
     }
 

@@ -48,13 +48,13 @@ export const SignUP = () => {
                 console.log(json)
 
                 dispatch({
-                    type: 'CHANGE_STATUS',
+                    type: 'CHANGE_USER',
                     payload: {
-                        status: '{email: email}'
+                        user: {email: email}
                     }
                 })
 
-                alert(state.status.status)
+                alert(state.user.user)
                 //navigate('/main')
             } else alert('erro ao criar um usuário')
         }
