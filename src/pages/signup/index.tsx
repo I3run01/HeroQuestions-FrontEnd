@@ -38,24 +38,25 @@ export const SignUP = () => {
     }
 
     const createACount = async () => {
+
+        dispatch({
+            type: 'CHANGE_USER',
+            payload: {
+                user: {email: email}
+            }
+        })
+
         if(!email || !password || !repPassword) return alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
+
+            
 
             let request = await Request.SignIn(email, password)
             let json = JSON.parse(request)
 
             if(json.status) {
                 console.log(json)
-
-                dispatch({
-                    type: 'CHANGE_USER',
-                    payload: {
-                        user: {email: email}
-                    }
-                })
-
-                alert(state.user.user)
-                //navigate('/main')
+                navigate('/main')
             } else alert('erro ao criar um usuário')
         }
     } 
