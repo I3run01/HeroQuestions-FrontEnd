@@ -1,11 +1,6 @@
-import { useContext } from "react"
-import { Context } from "../contexts/Context"
-
 const API_URL = 'https://teppaaplication.herokuapp.com/'
 
 export const SignIn = async (email: string, password: string) => {
-    //const {state, dispatch} = useContext(Context)
-
     let ApiRoute = 'register'
 
     try {
