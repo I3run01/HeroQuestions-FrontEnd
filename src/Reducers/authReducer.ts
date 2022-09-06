@@ -5,7 +5,7 @@ export type AuthType = {
 }
 
 export const authInitialStatus: AuthType = {
-    status: {nome: 'afws'}
+    status: null
 }
 
 

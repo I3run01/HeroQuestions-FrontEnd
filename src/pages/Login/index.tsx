@@ -1,10 +1,12 @@
 import { LoginStyle } from "./style"
 import { useNavigate } from "react-router-dom"
-import React, {useState } from "react"
+import React, {useContext, useState } from "react"
 import * as Request from '../../Auth/Request'
+import { Context } from "../../contexts/Context"
 
 export const Login = () => {
     const navigate = useNavigate()
+    const {state, dispatch} = useContext(Context)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
@@ -23,6 +25,16 @@ export const Login = () => {
 
         if(json.status) {
             console.log(json)
+
+            /*
+            dispatch({
+                type: 'CHANGE_STATUS',
+                payload: {
+                    status: {email: email}
+                }
+            })
+            */
+
             navigate('/main')
         } else alert('Usuário/senha incorreto(s)')
     } 
