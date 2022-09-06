@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
+import { Context } from '../contexts/Context'
 import * as request from './Request'
 
 type Props = {
@@ -6,9 +8,9 @@ type Props = {
 }
 
 export const RequireAuth = ({children}: Props) =>  {
-    const isAuth = {email: 'as@', token: 'qraffsa'}
+    const isAuth = useContext(Context)
 
-    if(!isAuth) {
+    if(!isAuth.state.status) {
         return <Navigate to="/login" />
     } return children
 }
