@@ -8,9 +8,9 @@ type Props = {
 }
 
 export const RequireAuth = ({children}: Props) =>  {
-    const isAuth = useContext(Context)
+    const {state, dispatch} = useContext(Context)
 
-    if(!isAuth.state.status) {
+    if(!state.status.status) {
         return <Navigate to="/login" />
     } return children
 }

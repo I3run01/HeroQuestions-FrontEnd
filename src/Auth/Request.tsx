@@ -1,6 +1,11 @@
+import { useContext } from "react"
+import { Context } from "../contexts/Context"
+
 const API_URL = 'https://teppaaplication.herokuapp.com/'
 
 export const SignIn = async (email: string, password: string) => {
+    const {state, dispatch} = useContext(Context)
+
     let ApiRoute = 'register'
 
     try {
@@ -18,7 +23,6 @@ export const SignIn = async (email: string, password: string) => {
 
         let json = await response.json()
         localStorage.setItem('token', json.token)
-        localStorage.setItem('email', email)
         return JSON.stringify(json)
         
     } catch {
@@ -45,7 +49,6 @@ export const Login =  async (email: string, password: string) => {
 
         let json = await response.json()
         localStorage.setItem('token', json.token)
-        localStorage.setItem('email', email)
         return JSON.stringify(json)
         
     } catch {
