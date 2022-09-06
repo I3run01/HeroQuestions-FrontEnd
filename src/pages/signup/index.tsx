@@ -92,8 +92,6 @@ export const SignUP = () => {
                     <input type="button" value="Criar conta" id="createAccountBTN" onClick={createACount}/>
                 </form>
 
-                
-                
             </div> 
         </SignUpStyle>
     )

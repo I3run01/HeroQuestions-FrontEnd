@@ -16,10 +16,6 @@ export const Login = () => {
         setPassword(event.target.value)
     }
 
-    const handlebackbutton = () => {
-        navigate(-1)
-    }
-
     const Login = async () => {
 
         let request = await Request.Login(email, password)
@@ -34,7 +30,7 @@ export const Login = () => {
     return (
         <LoginStyle>
             <div id="container">
-                <button id="backbutton" onClick={handlebackbutton}>Voltar</button>
+                <button id="backbutton" onClick={()=>navigate('/')}>Voltar</button>
                 <form action="">
                     <div>
                         <label htmlFor="E-mail">E-mail</label><br />
