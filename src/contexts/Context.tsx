@@ -5,7 +5,6 @@ import { reducerActionType } from "../Types/reducersActions";
 //Imports
 import {AuthType, authInitialStatus, authReducer} from '../Reducers/authReducer'
 
-
 //Campo editável
 type initialStateType = {
     status: AuthType;
@@ -19,10 +18,7 @@ type ContextType = {
 ///Campo editável
 const initialState = {
     status: authInitialStatus,
-
 }
-
-
 
 export const Context = createContext<ContextType>({
     state: initialState,
@@ -36,7 +32,6 @@ const mainReducer = (state: initialStateType, action: reducerActionType) => ({
 })
 
 export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
-    
     const [state, dispatch] = useReducer(mainReducer, initialState)
 
     return (
