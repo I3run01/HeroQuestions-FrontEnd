@@ -1,7 +1,8 @@
 import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as Request from '../../Auth/Request'
+import { Context } from "../../contexts/Context"
 
 export const SignUP = () => {
     const navigate = useNavigate()
@@ -10,6 +11,7 @@ export const SignUP = () => {
     const [repPassword, setRepPasswprd] = useState<string>('')
     const [emailValidation, setEmailValidation] = useState<boolean>(false)
     const [matchPassword, setMatchPassword] = useState<boolean>(false)
+    const {state, dispatch} = useContext(Context)
 
     useEffect(() => {
         email.indexOf('@') > 0 ? setEmailValidation(true) : setEmailValidation(false)
@@ -44,7 +46,8 @@ export const SignUP = () => {
 
             if(json.status) {
                 console.log(json)
-                navigate('/main')
+                alert(state.status.status)
+                //navigate('/main')
             } else alert('erro ao criar um usuário')
         }
     } 
