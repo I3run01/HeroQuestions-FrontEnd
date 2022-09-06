@@ -26,14 +26,7 @@ export const Login = () => {
         if(json.status) {
             console.log(json)
 
-            /*
-            dispatch({
-                type: 'CHANGE_STATUS',
-                payload: {
-                    status: {email: email}
-                }
-            })
-            */
+            
 
             navigate('/main')
         } else alert('Usuário/senha incorreto(s)')
