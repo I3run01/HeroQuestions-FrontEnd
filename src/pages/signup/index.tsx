@@ -50,7 +50,7 @@ export const SignUP = () => {
                 dispatch({
                     type: 'CHANGE_STATUS',
                     payload: {
-                        status: {email: email}
+                        status: '{email: email}'
                     }
                 })
 
