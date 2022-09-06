@@ -1,3 +1,6 @@
+import { useContext } from "react"
+import { Context } from "../contexts/Context"
+
 const API_URL = 'https://teppaaplication.herokuapp.com/'
 
 export const SignIn = async (email: string, password: string) => {
@@ -51,7 +54,7 @@ export const Login =  async (email: string, password: string) => {
     }
 }
 
-export const TokenValidation = async (email: string, token: string) => {
+export const TokenValidation = async (token: string) => {
     let ApiRoute = 'tokenValidation'
     
     try {
@@ -59,7 +62,6 @@ export const TokenValidation = async (email: string, token: string) => {
         {
             method: 'POST',
             body: new URLSearchParams ({
-                'email': email,
                 'token': token,
             }),
             headers: {
