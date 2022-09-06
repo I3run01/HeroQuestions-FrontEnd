@@ -25,6 +25,14 @@ export const Login = () => {
 
         if(json.status) {
             console.log(json)
+
+            dispatch({
+                type: 'CHANGE_USER',
+                payload: {
+                    user: {email: email}
+                }
+            })
+            
             navigate('/main')
         } else alert('Usuário/senha incorreto(s)')
     } 
