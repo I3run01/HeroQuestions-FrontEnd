@@ -1,6 +1,7 @@
 import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
 import React, { useEffect, useState } from "react"
+import * as Request from '../../Auth/Request'
 
 export const SignUP = () => {
     const navigate = useNavigate()
@@ -37,32 +38,14 @@ export const SignUP = () => {
     const createACount = async () => {
         if(!email || !password || !repPassword) return alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
-            try {
-                let response = await fetch('https://teppaaplication.herokuapp.com/register',
-                {
-                    method: 'POST',
-                    body: new URLSearchParams ({
-                        'email': email,
-                        'password': password,
-                    }),
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                    },
-                })
 
-                let json = await response.json()
+            let request = await Request.SignIn(email, password)
+            let json = JSON.parse(request)
 
-                if(json.status) {
-                    console.log(json)
-                    localStorage.setItem('token', json.token)
-                    navigate('/main')
-                } else { 
-                    if(json.response === 'user already exists') alert('usuário já existe')
-                    else if(json.response === 'E-mail or password not sent') alert('E-mail ou senha não enviados')
-                }
-            } catch (e) {
-                alert('erro ao criar um usuário')
-            }
+            if(json.status) {
+                console.log(json)
+                navigate('/main')
+            } else alert('erro ao criar um usuário')
         }
     } 
 

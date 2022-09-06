@@ -1,6 +1,7 @@
 import { LoginStyle } from "./style"
 import { useNavigate } from "react-router-dom"
 import React, {useState } from "react"
+import * as Request from '../../Auth/Request'
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -20,29 +21,14 @@ export const Login = () => {
     }
 
     const Login = async () => {
-        try {
-            let response = await fetch('https://teppaaplication.herokuapp.com/login',
-            {
-                method: 'POST',
-                body: new URLSearchParams ({
-                    'email': email,
-                    'password': password,
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                },
-            })
 
-            let json = await response.json()
+        let request = await Request.Login(email, password)
+        let json = JSON.parse(request)
 
-            if(json.status) {
-                console.log(json)
-                localStorage.setItem('token', json.token)
-                navigate('/main')
-            } else alert('Usuário/senha incorreto(s)')
-        } catch (e) {
-            alert('erro ao logar')
-        }
+        if(json.status) {
+            console.log(json)
+            navigate('/main')
+        } else alert('Usuário/senha incorreto(s)')
     } 
 
     return (
