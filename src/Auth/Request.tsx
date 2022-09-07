@@ -3,9 +3,22 @@ import { Context } from "../contexts/Context"
 
 const API_URL = 'https://teppaaplication.herokuapp.com/'
 
+export const ChangeState = (value: object | null) => {
+    const {state, dispatch} = useContext(Context)
+
+    dispatch({
+        type: 'CHANGE_USER',
+        payload: {
+            user: value
+        }
+    })
+    localStorage.setItem('test', String(value))
+
+    
+}
+
 export const SignIn = async (email: string, password: string) => {
     let ApiRoute = 'register'
-
     try {
         let response = await fetch(API_URL+ApiRoute,
         {
@@ -70,6 +83,7 @@ export const TokenValidation = async (token: string) => {
         })
 
         let json = await response.json()
+        ChangeState({email: json.email})
         return JSON.stringify(json)
         
     } catch {
