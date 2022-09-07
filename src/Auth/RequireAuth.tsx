@@ -1,8 +1,7 @@
-import { useContext, useEffect } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
 import { Context } from '../contexts/Context'
-import { TokenValidation } from './Request'
-import * as request from './Request'
+import {Login} from '../pages/Login'
+
 
 type Props = {
     children: JSX.Element
@@ -10,20 +9,8 @@ type Props = {
 
 export const RequireAuth = ({children}: Props) =>  {
     const {state, dispatch} = useContext(Context)
-    const navigate = useNavigate()
-
-    useEffect(()=>  {
-        TokenValidation(localStorage.getItem('token') ? localStorage.getItem('token') as string : 'generic' )      
-    })
-    
 
     if(!state.user.user) {
-        setTimeout(()=> {
-            if(state.user.user === null) {
-                //return <Navigate to="/login" />
-                localStorage.setItem('state', state.user.user+'3' )
-                navigate('../login')
-            }else return children
-        }, 200)  
+        return <Login/>
     }else return children
 }
