@@ -2,7 +2,7 @@ import { Routes, Route, useRoutes } from "react-router-dom"
 import { Login } from "../pages/Login"
 import { Home } from "../pages/home"
 import { SignUP } from "../pages/signup"
-import { Main } from "../pages/main"
+import { Page01 } from "../pages/page01"
 import { RequireAuth } from "../Auth/RequireAuth"
 
 export const MainRoutes = () => {
@@ -12,6 +12,6 @@ export const MainRoutes = () => {
         {path: '/login', element: <Login/>},
         {path: '/', element: <Home/>},
         {path: '/signup', element: <SignUP/>},
-        {path: '/main', element: <RequireAuth><Main/></RequireAuth>}
+        {path: '/main', element: <RequireAuth><Page01/></RequireAuth>}
     ])
 }
