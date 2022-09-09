@@ -14,6 +14,5 @@ export const RequireAuth = ({children}: Props) =>  {
 
     if(!state.user.user) {
        // return <Login/>
-       return navigate('../login')
     }else return children
 }
