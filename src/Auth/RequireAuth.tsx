@@ -11,6 +11,6 @@ export const RequireAuth = ({children}: Props) =>  {
     const {state, dispatch} = useContext(Context)
 
     if(!state.user.user) {
-        return <Login/>
+        //return <Login/>
     }else return children
 }
