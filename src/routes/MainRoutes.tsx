@@ -4,7 +4,7 @@ import { Home } from "../pages/home"
 import { SignUP } from "../pages/signup"
 import { Page01 } from "../pages/page01"
 import { RequireAuth } from "../Auth/RequireAuth"
-import { LoginCopy } from "../pages/loginCopy"
+import { SignUPCopy } from "../pages/signupCopy"
 
 export const MainRoutes = () => {
 
@@ -14,6 +14,7 @@ export const MainRoutes = () => {
         {path: '/', element: <Home/>},
         {path: '/signup', element: <SignUP/>},
         {path: '/main', element: <RequireAuth><Page01/></RequireAuth>},
-        {path: '/loginCopy', element: <LoginCopy/>}
+        {path: '/signupcopy', element: <SignUPCopy/>},
+        
     ])
 }
