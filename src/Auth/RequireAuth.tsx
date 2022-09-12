@@ -1,7 +1,7 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Context } from '../contexts/Context'
 import {Login} from '../pages/Login'
-
 
 type Props = {
     children: JSX.Element

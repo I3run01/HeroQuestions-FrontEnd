@@ -10,14 +10,6 @@ export const Login = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
-    const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value) 
-    }
-
-    const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(event.target.value)
-    }
-
     const Login = async () => {
 
         let request = await Request.Login(email, password)
@@ -44,11 +36,11 @@ export const Login = () => {
                 <form action="">
                     <div>
                         <label htmlFor="E-mail">E-mail</label><br />
-                        <input type="text" id="email" onChange={handleEmail} /><br />
+                        <input type="text" id="email" onChange={(event) => {setEmail(event.target.value)}} /><br />
                     </div>
                     <div>
                         <label htmlFor="senha">senha</label> <br />
-                        <input type="password" name="password" id="password" onChange={handlePassword} /><br /> 
+                        <input type="password" name="password" id="password" onChange={(event)=>{(event.target.value)}} /><br /> 
                     </div>
                     <input type="button" value="Logar" id="Login" onClick={Login}/>
                 </form>
