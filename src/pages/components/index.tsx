@@ -18,6 +18,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
 
     const handleButton = () => {
         if(questionOne === '' || questionTwo === ''|| questionThree ==='') return alert('Todos os campos devem estar preenchidos')
+
         
     }
 

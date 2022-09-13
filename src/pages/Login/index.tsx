@@ -40,7 +40,7 @@ export const Login = () => {
                     </div>
                     <div>
                         <label htmlFor="senha">senha</label> <br />
-                        <input type="password" name="password" id="password" onChange={(event)=>{(event.target.value)}} /><br /> 
+                        <input type="password" name="password" id="password" onChange={(event)=>{setPassword(event.target.value)}} /><br /> 
                     </div>
                     <input type="button" value="Logar" id="Login" onClick={Login}/>
                 </form>
