@@ -11,7 +11,7 @@ export const HeroQuestionStyle = styled.main<Props>`
     display: flex;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 
     background-image: url(${props => props.bgImage});
     background-repeat: repeat;

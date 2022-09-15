@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
-import { useNavigate, Link } from "react-router-dom";
-import { sendHeroQuestions } from '../Auth/Request'
-import { parse } from "path";
+import { useNavigate } from "react-router-dom";
+import { sendHeroQuestions } from '../../Auth/Request'
 
 
 type Props = {
