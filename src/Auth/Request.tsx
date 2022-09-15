@@ -75,3 +75,28 @@ export const TokenValidation = async (token: string) => {
         return "{status: 'Conection Error'}"
     }
 }
+
+export const sendHeroQuestions = async (paramater: string, value: string) => {
+    let ApiRoute = 'heroQuestions'
+    let token = localStorage.getItem('token') as string
+
+    try {
+        let response = await fetch(API_URL+ApiRoute,
+        {
+            method: 'POST',
+            body: new URLSearchParams ({
+                'value': value,
+                'parameter': paramater,
+                'token': token
+            }),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            }
+        })
+        let json = await response.json()
+        return JSON.stringify(json)
+
+    } catch {
+        return "{status: 'Conection Error'}"
+    }
+}

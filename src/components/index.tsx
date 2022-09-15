@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
+import { useNavigate } from "react-router-dom";
+
 
 type Props = {
     question01: string
@@ -12,14 +14,21 @@ type Props = {
 }
 
 export const HerosQuestions = ({question01,parameter01,question02,parameter02,question03,parameter03}:Props) => {
-    const [questionOne, setQuestionOne] = useState<string>()
-    const [questionTwo, setQuestionTwo] = useState<string>()
-    const [questionThree, setQuestionThree] = useState<string>()
+    const [questionOne, setQuestionOne] = useState<string>('')
+    const [questionTwo, setQuestionTwo] = useState<string>('')
+    const [questionThree, setQuestionThree] = useState<string>('')
+    const navigation = useNavigate()
 
     const handleButton = () => {
         if(questionOne === '' || questionTwo === ''|| questionThree ==='') return alert('Todos os campos devem estar preenchidos')
 
+        if(!localStorage.getItem('token')) {
+            alert('Faça o login antes de prosseguir')
+            navigation('/login')
+        }
+
         
+
     }
 
     return (

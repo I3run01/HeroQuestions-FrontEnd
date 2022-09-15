@@ -4,7 +4,8 @@ import { Home } from "../pages/home"
 import { SignUP } from "../pages/signup"
 import { Page01 } from "../pages/page01"
 import { RequireAuth } from "../Auth/RequireAuth"
-
+import { NotFounded } from "../pages/NotFounded"
+ 
 export const MainRoutes = () => {
 
     return useRoutes([
@@ -12,6 +13,7 @@ export const MainRoutes = () => {
         {path: '/login', element: <Login/>},
         {path: '/', element: <Home/>},
         {path: '/signup', element: <SignUP/>},
-        {path: '/main', element: <RequireAuth><Page01/></RequireAuth>},        
+        {path: '/main', element: <RequireAuth><Page01/></RequireAuth>},
+        {path: '*' , element: <NotFounded/>}   
     ])
 }

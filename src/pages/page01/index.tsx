@@ -1,4 +1,4 @@
-import { HerosQuestions } from "../components"
+import { HerosQuestions } from "../../components"
 
 export const Page01 = () => {
 
