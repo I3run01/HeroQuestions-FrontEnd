@@ -9,7 +9,7 @@ export const Page01 = () => {
         question03="Nível de experiência do herói:"
 
         parameter01="heroName"
-        parameter02="cityAtuation"
+        parameter02="heroCity"
         parameter03="heroExperience"
         bgImage="images/spiderman.jpg"
         />
