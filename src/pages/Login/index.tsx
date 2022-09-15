@@ -25,7 +25,7 @@ export const Login = () => {
                 }
             })
             
-            navigate('/main')
+            navigate('/page01')
         } else alert('Usuário/senha incorreto(s)')
     } 
 

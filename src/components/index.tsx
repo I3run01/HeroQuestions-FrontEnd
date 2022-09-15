@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { sendHeroQuestions } from '../Auth/Request'
 
 
@@ -14,16 +14,16 @@ type Props = {
     parameter03: string
 
     bgImage: string
+    nextPage: string
 }
 
-export const HerosQuestions = ({question01,parameter01,question02,parameter02,question03,parameter03, bgImage}:Props) => {
+export const HerosQuestions = ({question01,parameter01,question02,parameter02,question03,parameter03,bgImage,nextPage}:Props) => {
     const [questionOne, setQuestionOne] = useState<string>('')
     const [questionTwo, setQuestionTwo] = useState<string>('')
     const [questionThree, setQuestionThree] = useState<string>('')
     const navigation = useNavigate()
 
     const handleButton = () => {
-        if(questionOne === '' || questionTwo === ''|| questionThree ==='') return alert('Todos os campos devem estar preenchidos')
 
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
@@ -33,13 +33,14 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
         sendHeroQuestions(parameter01, questionOne)
         sendHeroQuestions(parameter02, questionTwo)
         sendHeroQuestions(parameter03, questionThree)
-    
+        navigation(nextPage)
     }
 
     return (
         <HeroQuestionStyle
         bgImage={bgImage}>
             <div id="container">
+                <p id="backbutton" onClick={()=>{navigation(-1)}}>Voltar</p>
                 <p>{question01}</p>
                 <input type="text" name="" id="" placeholder="digite aqui" onChange={(event)=>setQuestionOne(event.target.value)}/>
                 <p>{question02}</p>

@@ -15,6 +15,7 @@ export const HeroQuestionStyle = styled.main<Props>`
 
     background-image: url(${props => props.bgImage});
     background-repeat: repeat;
+    background-size: cover;
 
     #container {
         margin-top: 20px;
@@ -23,15 +24,38 @@ export const HeroQuestionStyle = styled.main<Props>`
         align-items: left;
         border-radius: 20px;
         padding: 20px;
-        height: 400px;
+        height: 500px;
+        width: 500px;
 
         /* From https://css.glass */
         background: rgba(53, 138, 215, 0.2);
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(6px);
+        backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(5.3px);
         border: 2px solid rgba(53, 138, 215, 0.3);
+
+        #backbutton {
+            margin-bottom: 20px;
+            width: min-content;
+
+            :hover {
+                cursor: pointer;
+            }
+
+            ::after {
+                    content: '';
+                    height: 4px;
+                    width: 0%;
+                    background: #c900ff;
+                    display: block;
+                    transition: 0.3s;
+            }
+
+            :hover::after {
+                width: 100%;
+            }
+        }
 
         p {
             font-family: 'Aboreto', cursive;

@@ -54,7 +54,7 @@ export const SignUP = () => {
 
             if(json.status) {
                 console.log(json)
-                navigate('/main')
+                navigate('/page01')
             } else alert('erro ao criar um usuário')
         }
     } 
