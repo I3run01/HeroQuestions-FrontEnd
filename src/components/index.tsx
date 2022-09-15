@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
+import { sendHeroQuestions } from '../Auth/Request'
 
 
 type Props = {
@@ -11,9 +12,11 @@ type Props = {
     parameter01: string
     parameter02: string
     parameter03: string
+
+    bgImage: string
 }
 
-export const HerosQuestions = ({question01,parameter01,question02,parameter02,question03,parameter03}:Props) => {
+export const HerosQuestions = ({question01,parameter01,question02,parameter02,question03,parameter03, bgImage}:Props) => {
     const [questionOne, setQuestionOne] = useState<string>('')
     const [questionTwo, setQuestionTwo] = useState<string>('')
     const [questionThree, setQuestionThree] = useState<string>('')
@@ -24,15 +27,18 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
 
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
-            navigation('/login')
+            return navigation('/login')
         }
 
-        
-
+        sendHeroQuestions(parameter01, questionOne)
+        sendHeroQuestions(parameter02, questionTwo)
+        sendHeroQuestions(parameter03, questionThree)
+    
     }
 
     return (
-        <HeroQuestionStyle>
+        <HeroQuestionStyle
+        bgImage={bgImage}>
             <div id="container">
                 <p>{question01}</p>
                 <input type="text" name="" id="" placeholder="digite aqui" onChange={(event)=>setQuestionOne(event.target.value)}/>

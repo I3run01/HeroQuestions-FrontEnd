@@ -11,6 +11,7 @@ export const Page01 = () => {
         parameter01="heroName"
         parameter02="cityAtuation"
         parameter03="heroExperience"
+        bgImage="images/spiderman.jpg"
         />
     )
 }

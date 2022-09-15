@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const HeroQuestionStyle = styled.main`
+type Props = {
+    bgImage: string
+}
+
+export const HeroQuestionStyle = styled.main<Props>`
     @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Dancing+Script&family=Open+Sans:wght@300&family=Rubik+Dirt&display=swap');
     
     position: fixed;
@@ -8,9 +12,8 @@ export const HeroQuestionStyle = styled.main`
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    
 
-    background-image: url('images/spiderman.jpg');
+    background-image: url(${props => props.bgImage});
     background-repeat: repeat;
 
     #container {
