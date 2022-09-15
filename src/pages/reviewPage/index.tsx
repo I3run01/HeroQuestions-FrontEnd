@@ -4,7 +4,11 @@ export const ReviewPage = () => {
 
     return (
         <ReviewPageStyle>
-            <h1>ReviewPage</h1>
+            <div id="container">
+                <h1>ReviewPage</h1>
+                
+            </div>
+            
         </ReviewPageStyle>
     )
 }

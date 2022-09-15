@@ -23,17 +23,20 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionThree, setQuestionThree] = useState<string>('')
     const navigation = useNavigate()
 
-    const handleButton = () => {
+    const handleButton = async () => {
 
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
             return navigation('/login')
         }
 
-        sendHeroQuestions(parameter01, questionOne)
-        sendHeroQuestions(parameter02, questionTwo)
-        sendHeroQuestions(parameter03, questionThree)
-        navigation(nextPage)
+        let response01 = JSON.parse(await sendHeroQuestions(parameter01, questionOne))
+        let response02 = JSON.parse(await sendHeroQuestions(parameter02, questionTwo))
+        let response03 = JSON.parse(await sendHeroQuestions(parameter03, questionThree))
+
+        if(response01.status && response02.status && response03.status) navigation(nextPage)
+        else alert('Dados não enviados, tente logar novamente')
+        
     }
 
     return (
