@@ -2,6 +2,7 @@ import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate, Link } from "react-router-dom";
 import { sendHeroQuestions } from '../Auth/Request'
+import { parse } from "path";
 
 
 type Props = {
@@ -33,10 +34,10 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
         let response01 = JSON.parse(await sendHeroQuestions(parameter01, questionOne))
         let response02 = JSON.parse(await sendHeroQuestions(parameter02, questionTwo))
         let response03 = JSON.parse(await sendHeroQuestions(parameter03, questionThree))
-
-        if(response01.status && response02.status && response03.status) navigation(nextPage)
-        else alert('Dados não enviados, tente logar novamente')
         
+        if(response01.status && response02.status && response03.status) navigation(nextPage)
+        else alert('Dados não enviados, verifique se preencheu tudo ou tente logar novamente')
+
     }
 
     return (
