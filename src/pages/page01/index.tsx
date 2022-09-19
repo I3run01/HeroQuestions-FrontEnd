@@ -1,12 +1,11 @@
 import { HerosQuestions } from "../../components/sendHeroQuestions"
-import { HeroAnswer } from "../../components/seeHeroAnswer"
+import { HeroAnswer } from "../../components/sendHeroQuestions/seeHeroAnswer"
 import { Page01style } from "./style"
 
 export const Page01 = () => {
 
     return (
         <Page01style>
-            <HeroAnswer/>
             <HerosQuestions
                 question01="Nome de herói: "
                 question02="Cidade de atuação:"

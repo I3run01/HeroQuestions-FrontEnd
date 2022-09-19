@@ -1,8 +1,13 @@
+import { useState } from "react"
 import { HeroAnswerStyle } from "./style"
 
 export const HeroAnswer = () => {
-
-
+    const [heroName, setHeroName] = useState<string>('')
+    const [hero, setHeroName] = useState<string>('')
+    const [heroName, setHeroName] = useState<string>('')
+    const [heroName, setHeroName] = useState<string>('')
+    const [heroName, setHeroName] = useState<string>('')
+    const [heroName, setHeroName] = useState<string>('')
 
     return (
         <HeroAnswerStyle>

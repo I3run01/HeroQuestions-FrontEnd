@@ -2,7 +2,7 @@ import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
 import { sendHeroQuestions } from '../../Auth/Request'
-
+import { HeroAnswer } from "./seeHeroAnswer";
 
 type Props = {
     question01: string
@@ -42,6 +42,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     return (
         <HeroQuestionStyle
         bgImage={bgImage}>
+            <HeroAnswer/>
             <div id="container">
                 <p id="backbutton" onClick={()=>{navigation(-1)}}>Voltar</p>
                 <p>{question01}</p>
