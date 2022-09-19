@@ -44,7 +44,6 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
         .then((json)=>{
             if(json.user) {
                 
-
                 dispatch({
                     type: 'CHANGE_USER',
                     payload: {

@@ -20,8 +20,8 @@ export const heroQuestionsInicialState: heroQuestionsType = {
 
 export const heroQuestionsReducer = (state: heroQuestionsType, action: reducerActionType) => {
     switch(action.type) {
-        case 'CHANGE_USER':
-            return {...state, heroQuestions: action.payload.heroQuestions}
+        case 'changeHeroName':
+            return {...state, heroName: action.payload.heroName}
         break
     }
 
