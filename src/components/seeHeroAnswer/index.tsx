@@ -1,9 +1,19 @@
 import { HeroAnswerStyle } from "./style"
 
 export const HeroAnswer = () => {
+
+
+
     return (
         <HeroAnswerStyle>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, ab possimus itaque hic unde esse asperiores sit assumenda similique iste adipisci. Distinctio, at voluptatibus neque quis dolor pariatur labore unde?</p>
+            <ul>
+                <li>Nome do herói: </li>
+                <li>Cidade de atuação: </li>
+                <li>Nível de experiência do herói: </li>
+                <li>Nome de herói: </li>
+                <li>Cidade do herói: </li>
+                <li>Experiência do herói: </li>
+            </ul>
         </HeroAnswerStyle>
     )
 }
