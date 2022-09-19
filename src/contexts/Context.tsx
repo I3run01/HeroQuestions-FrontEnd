@@ -1,12 +1,15 @@
 import { createContext, useReducer, useEffect } from "react";
 
 import { userType, userInicialState, userReducer } from "../reducers/userReducer";
+import { heroQuestionsType, heroQuestionsInicialState, heroQuestionsReducer } from '../reducers/heroQuestionsReducer'
+
 import { reducerActionType } from "../types/reducerActionsType";
 
 import { TokenValidation } from '../Auth/Request'
 
 type initialStateType = {
     user: userType
+    heroQuestions: heroQuestionsType
 } //Change Here
 
 type ContextType = {
@@ -15,7 +18,8 @@ type ContextType = {
 }
 
 const initialState = {
-    user: userInicialState
+    user: userInicialState,
+    heroQuestions: heroQuestionsInicialState
 } //Change Here
 
 
@@ -26,8 +30,8 @@ export const Context = createContext<ContextType>({
 })
 
 const mainReducer = (state: initialStateType, action: reducerActionType) => ({
-    user: userReducer(state.user, action)
-
+    user: userReducer(state.user, action),
+    heroQuestions: heroQuestionsReducer(state.heroQuestions, action)
 }) //Change Here
 
 export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
