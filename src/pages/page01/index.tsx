@@ -1,5 +1,5 @@
 import { HerosQuestions } from "../../components/sendHeroQuestions"
-import { HeroAnswer } from "../../components/sendHeroQuestions/seeHeroAnswer"
+
 import { Page01style } from "./style"
 
 export const Page01 = () => {
