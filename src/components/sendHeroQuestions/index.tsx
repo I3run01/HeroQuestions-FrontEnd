@@ -30,11 +30,9 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
             return navigation('/login')
         }
 
-        alert('test')
-
-        if(questionOne !== '') await sendHeroQuestions(parameter01, questionOne)
-        if(questionTwo !== '') await sendHeroQuestions(parameter02, questionTwo)
-        if(questionThree !== '') await sendHeroQuestions(parameter03, questionThree)
+        if(questionOne !== '') sendHeroQuestions(parameter01, questionOne)
+        if(questionTwo !== '') sendHeroQuestions(parameter02, questionTwo)
+        if(questionThree !== '') sendHeroQuestions(parameter03, questionThree)
 
         navigation(nextPage)
     }
