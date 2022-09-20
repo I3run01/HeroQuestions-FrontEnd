@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
-import { Context } from "../../../contexts/Context"
+import { Context } from "../../contexts/Context"
 import { HeroAnswerStyle } from "./style"
-import { allHeroAnswer } from "../../../Auth/Request"
+import { allHeroAnswer } from "../../Auth/Request"
 
 export const HeroAnswer = () => {
 

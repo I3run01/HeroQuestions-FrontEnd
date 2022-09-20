@@ -5,6 +5,7 @@ import { SignUP } from "../pages/signup"
 import { Page01 } from "../pages/page01"
 import { Page02 } from "../pages/page02"
 import { RequireAuth } from "../Auth/RequireAuth"
+import { ReviewPage } from "../pages/reviewPage"
 import { NotFounded } from "../pages/NotFounded"
  
 export const MainRoutes = () => {
@@ -16,6 +17,7 @@ export const MainRoutes = () => {
         {path: '/signup', element: <SignUP/>},
         {path: '/page01', element: <RequireAuth><Page01/></RequireAuth>},
         {path: '/page02', element: <RequireAuth><Page02/></RequireAuth>},
+        {path: '/reviewPage', element: <RequireAuth><ReviewPage/></RequireAuth>},
         {path: '*' , element: <NotFounded/>}
     ])
 }

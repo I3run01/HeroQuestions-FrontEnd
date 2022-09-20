@@ -1,11 +1,11 @@
 import { HerosQuestions } from "../../components/sendHeroQuestions"
-
-import { Page01style } from "./style"
+import { HeroAnswer } from '../../components/seeHeroAnswer'
 
 export const Page01 = () => {
 
     return (
-        <Page01style>
+        <main>
+            <HeroAnswer/>
             <HerosQuestions
                 question01="Nome de herói: "
                 question02="Cidade de atuação:"
@@ -17,7 +17,7 @@ export const Page01 = () => {
                 bgImage="images/spiderman.jpg"
                 nextPage='/page02'
             />
-        </Page01style>
+        </main>
         
     )
 }
