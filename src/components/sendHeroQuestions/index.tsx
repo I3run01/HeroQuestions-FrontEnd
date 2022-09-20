@@ -2,7 +2,6 @@ import { useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
 import { sendHeroQuestions } from '../../Auth/Request'
-import { HeroAnswer } from "../seeHeroAnswer";
 
 type Props = {
     question01: string
