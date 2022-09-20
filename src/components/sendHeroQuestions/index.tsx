@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
 import { sendHeroQuestions } from '../../Auth/Request'
@@ -22,8 +22,8 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionThree, setQuestionThree] = useState<string>('')
     const navigation = useNavigate()
 
-    const handleButton = async () => {
-
+    const sendHeroQuestion = () => {
+        
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
             return navigation('/login')
@@ -32,9 +32,11 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
         if(questionOne !== '') sendHeroQuestions(parameter01, questionOne)
         if(questionTwo !== '') sendHeroQuestions(parameter02, questionTwo)
         if(questionThree !== '') sendHeroQuestions(parameter03, questionThree)
-
-        navigation(nextPage)
     }
+
+    useEffect(() => {
+        sendHeroQuestion()
+    })
 
     return (
         <HeroQuestionStyle
@@ -47,7 +49,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
                 <input type="text" name="" id="" placeholder="digite aqui" onChange={(event)=>setQuestionTwo(event.target.value)}/>
                 <p>{question03}</p>
                 <input type="text" name="" id="" placeholder="digite aqui" onChange={(event)=>setQuestionThree(event.target.value)}/>
-                <button onClick={handleButton}>Proxima página</button>
+                <button onClick={() => {navigation(nextPage)}}>Proxima página</button>
             </div>      
         </HeroQuestionStyle>
     )
