@@ -29,11 +29,11 @@ export const heroQuestionsReducer = (state: heroQuestionsType, action: reducerAc
         break
 
         case 'changeHeroExperience':
-            return {...state, changeHeroExperience: action.payload.changeHeroExperience}
+            return {...state, heroExperience: action.payload.heroExperience}
         break
 
         case 'changeHeroLocomotion':
-            return {...state, changeHeroLocomotion: action.payload.changeHeroLocomotion}
+            return {...state, heroLocomotion: action.payload.heroLocomotion}
         break
 
         case 'changeHeroAbilities':

@@ -1,6 +1,3 @@
-import { useContext } from "react"
-import { Context } from "../contexts/Context"
-
 const API_URL = 'https://teppaaplication.herokuapp.com/'
 
 export const SignIn = async (email: string, password: string) => {
@@ -102,6 +99,25 @@ export const sendHeroQuestions = async (paramater: string, value: string) => {
 }
 
 export const allHeroAnswer = async () => {
-    let apiRouter = ''
+    let apiRouter = 'allHeroAnswer'
+    let token = localStorage.getItem('token') as string
+
+    try {
+        let response = await fetch(API_URL+apiRouter, 
+        {
+            method: 'POST',
+            body: new URLSearchParams ({
+                'token': token
+            }),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            }
+        })
+        let json = await response.json()
+        return JSON.stringify(json)
+
+    } catch {
+        return "{status: 'Conection Error'}"
+    }
 
 }
