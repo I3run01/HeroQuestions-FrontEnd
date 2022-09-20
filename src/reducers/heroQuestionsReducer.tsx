@@ -23,7 +23,29 @@ export const heroQuestionsReducer = (state: heroQuestionsType, action: reducerAc
         case 'changeHeroName':
             return {...state, heroName: action.payload.heroName}
         break
+
+        case 'changeHeroCity':
+            return {...state, heroCity: action.payload.heroCity}
+        break
+
+        case 'changeHeroExperience':
+            return {...state, changeHeroExperience: action.payload.changeHeroExperience}
+        break
+
+        case 'changeHeroLocomotion':
+            return {...state, changeHeroLocomotion: action.payload.changeHeroLocomotion}
+        break
+
+        case 'changeHeroAbilities':
+            return {...state, heroAbilities: action.payload.heroAbilities}
+        break
+
+        case 'changeHeroSuperPower':
+            return {...state, heroSuperPower: action.payload.heroSuperPower}
+        break
+
     }
+    
 
     return state
 }

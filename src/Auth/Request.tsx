@@ -100,3 +100,8 @@ export const sendHeroQuestions = async (paramater: string, value: string) => {
         return "{status: 'Conection Error'}"
     }
 }
+
+export const allHeroAnswer = async () => {
+    let apiRouter = ''
+
+}
