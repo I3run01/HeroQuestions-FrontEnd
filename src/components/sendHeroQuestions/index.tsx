@@ -29,11 +29,12 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
             alert('Faça o login antes de prosseguir')
             return navigation('/login')
         }
+
         alert('test')
-        let resp = await sendHeroQuestions(parameter01, questionOne)
-        await sendHeroQuestions(parameter02, questionTwo)
-        await sendHeroQuestions(parameter03, questionThree)
-        alert(resp)
+
+        if(questionOne !== '') await sendHeroQuestions(parameter01, questionOne)
+        if(questionTwo !== '') await sendHeroQuestions(parameter02, questionTwo)
+        if(questionThree !== '') await sendHeroQuestions(parameter03, questionThree)
 
         navigation(nextPage)
     }
