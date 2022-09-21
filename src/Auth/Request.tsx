@@ -1,6 +1,8 @@
 const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com/'
 
 export const SignIn = async (email: string, password: string) => {
+
+    /*
     let ApiRoute = 'register'
     try {
         let response = await fetch(API_URL+ApiRoute,
@@ -22,6 +24,7 @@ export const SignIn = async (email: string, password: string) => {
     } catch {
         return "{status: 'Conection Error'}"
     }
+    */
 
 }
 
