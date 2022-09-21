@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
 import { sendHeroQuestions } from '../../Auth/Request'
+import { Context } from "../../contexts/Context";
 
 type Props = {
     question01: string
@@ -20,6 +21,9 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionOne, setQuestionOne] = useState<string>('')
     const [questionTwo, setQuestionTwo] = useState<string>('')
     const [questionThree, setQuestionThree] = useState<string>('')
+
+    const {state, dispatch} = useContext(Context)
+
     const navigation = useNavigate()
 
     const sendHeroQuestion = () => {
