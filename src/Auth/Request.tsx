@@ -1,4 +1,4 @@
-const API_URL = 'https://teppaaplication.herokuapp.com/'
+const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com/'
 
 export const SignIn = async (email: string, password: string) => {
     let ApiRoute = 'register'
