@@ -1,60 +1,61 @@
-const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com/'
+const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com'
 
-export const SignIn = async (email: string, password: string) => {
+export const fetchRequest = {
+    SignIn: async (email: string, password: string) => {
+        let ApiRoute = '/register'
 
-    /*
-    let ApiRoute = 'register'
-    try {
-        let response = await fetch(API_URL+ApiRoute,
-        {
-            method: 'POST',
-            body: new URLSearchParams ({
-                'email': email,
-                'password': password,
-            }),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-        })
+        try {
+            let response = await fetch(API_URL+ApiRoute,
+            {
+                method: 'POST',
+                body: new URLSearchParams ({
+                    'email': email,
+                    'password': password,
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+            })
+    
+            let json = await response.json()
+            localStorage.setItem('token', json.token)
+            return JSON.stringify(json)
+     
+        } catch {
+            return "{status: 'Conection Error'}"
+        } 
+    },
 
-        let json = await response.json()
-        localStorage.setItem('token', json.token)
-        return JSON.stringify(json)
- 
-    } catch {
-        return "{status: 'Conection Error'}"
+    Login: async (email: string, password: string) => {
+        let ApiRoute = '/login'
+
+        try {
+            let response = await fetch(API_URL+ApiRoute,
+            {
+                method: 'POST',
+                body: new URLSearchParams ({
+                    'email': email,
+                    'password': password,
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+            })
+    
+            let json = await response.json()
+            localStorage.setItem('token', json.token)
+            return JSON.stringify(json)
+     
+        } catch {
+            return "{status: 'Conection Error'}"
+        }
+
     }
-    */
-
-}
-
-export const Login =  async (email: string, password: string) => {
-    let ApiRoute = 'login'
-
-    try {
-        let response = await fetch(API_URL+ApiRoute,
-        {
-            method: 'POST',
-            body: new URLSearchParams ({
-                'email': email,
-                'password': password,
-            }),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-        })
-
-        let json = await response.json()
-        localStorage.setItem('token', json.token)
-        return JSON.stringify(json)
-        
-    } catch {
-        return "{status: 'Conection Error'}"
-    }
+    
 }
 
 export const TokenValidation = async (token: string) => {
-    let ApiRoute = 'tokenValidation'
+    let ApiRoute = '/tokenValidation'
     
     try {
         let response = await fetch(API_URL+ApiRoute,
@@ -77,7 +78,7 @@ export const TokenValidation = async (token: string) => {
 }
 
 export const sendHeroQuestions = async (paramater: string, value: string) => {
-    let ApiRoute = 'heroQuestions'
+    let ApiRoute = '/heroQuestions'
     let token = localStorage.getItem('token') as string
 
     try {
@@ -102,7 +103,7 @@ export const sendHeroQuestions = async (paramater: string, value: string) => {
 }
 
 export const allHeroAnswer = async () => {
-    let apiRouter = 'allHeroAnswer'
+    let apiRouter = '/allHeroAnswer'
     let token = localStorage.getItem('token') as string
 
     try {
