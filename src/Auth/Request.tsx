@@ -117,6 +117,7 @@ export const fetchRequest = {
                 }
             })
             let json = await response.json()
+            console.log(json)
             return JSON.stringify(json)
 
         } catch {
