@@ -10,11 +10,11 @@ export type heroQuestionsType = {
 }
 
 export const heroQuestionsInicialState: heroQuestionsType = {
-    heroName:'af',
+    heroName:null,
     heroCity:null,
     heroExperience:null,
     heroLocomotion:null,
-    heroAbilities:'wfgwrghwt',
+    heroAbilities:null,
     heroSuperPower:null,
 }
 

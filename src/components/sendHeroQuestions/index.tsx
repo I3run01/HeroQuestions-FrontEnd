@@ -41,7 +41,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
             dispatch({
                 type: 'changeHeroName',
                 payload: {
-                    heroCity: `sfsf`
+                    heroName: `${questionOne}`
                 }
             })
         }
@@ -51,7 +51,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
 
     useEffect(() => {
         sendHeroQuestion()
-    })
+    }, [questionOne, questionTwo, questionThree])
 
     return (
         <HeroQuestionStyle
