@@ -82,18 +82,12 @@ export const fetchRequest = {
         let ApiRoute = '/heroQuestions'
         let token = localStorage.getItem('token') as string
 
-        
-        try {
-            
-            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
-                value: value,
-                parameter: paramater,
-                token: token,
-            }))
-            return JSON.stringify(json)
-        } catch {
-            return "{status: 'Conection Error'}"
-        }
+        let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+            value: value,
+            parameter: paramater,
+            token: token,
+        }))
+        return JSON.stringify(json)
     },
 
     allHeroAnswer: async () => {

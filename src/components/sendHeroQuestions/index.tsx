@@ -23,6 +23,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionThree, setQuestionThree] = useState<string>('')
     const navigate = useNavigate()  
 
+
     const handleButton = async () => {
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
@@ -30,7 +31,7 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
         }
         
         if(questionOne != '') {
-            await fetchRequest.sendHeroQuestions(parameter01, questionOne)
+            await fetchRequest.sendHeroQuestions(parameter01, questionOne)  
         }
         if(questionTwo != '') {
             await fetchRequest.sendHeroQuestions(parameter02, questionTwo)
