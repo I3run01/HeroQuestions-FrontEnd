@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react"
 import { Context } from "../../contexts/Context"
 import { HeroAnswerStyle } from "./style"
-import { allHeroAnswer } from "../../Auth/Request"
+import { fetchRequest } from "../../Auth/Request"
 
 export const HeroAnswer = () => {
 
     const {state, dispatch} = useContext(Context)
 
     const getAllHeroAnswer = async () => {
-        let response = await allHeroAnswer()
+        let response = await fetchRequest.allHeroAnswer()
         let json = JSON.parse(response)
 
         dispatch({

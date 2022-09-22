@@ -1,7 +1,7 @@
 import { SignUpStyle } from "./style"
 import { useNavigate } from "react-router-dom"
 import React, { useContext, useEffect, useState } from "react"
-import * as Request from '../../Auth/Request'
+import { fetchRequest } from "../../Auth/Request"
 import { Context } from "../../contexts/Context"
 
 export const SignUP = () => {
@@ -49,7 +49,7 @@ export const SignUP = () => {
         if(!email || !password || !repPassword) return alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
 
-            let request = await Request.SignIn(email, password)
+            let request = await fetchRequest.SignIn(email, password)
             let json = JSON.parse(request)
 
             if(json.status) {

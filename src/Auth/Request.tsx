@@ -50,78 +50,77 @@ export const fetchRequest = {
             return "{status: 'Conection Error'}"
         }
 
-    }
+    },
+
+    TokenValidation: async () => {
+        let ApiRoute = '/tokenValidation'
+        let token = localStorage.getItem('token') as string
+
+        try {
+            let response = await fetch(API_URL+ApiRoute,
+            {
+                method: 'POST',
+                body: new URLSearchParams ({
+                    'token': token,
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+            })
     
-}
+            let json = await response.json()
+            return JSON.stringify(json)
+            
+        } catch {
+            return "{status: 'Conection Error'}"
+        }
+    },
 
-export const TokenValidation = async (token: string) => {
-    let ApiRoute = '/tokenValidation'
-    
-    try {
-        let response = await fetch(API_URL+ApiRoute,
-        {
-            method: 'POST',
-            body: new URLSearchParams ({
-                'token': token,
-            }),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-        })
+    sendHeroQuestions: async (paramater: string, value: string) => {
+        let ApiRoute = '/heroQuestions'
+        let token = localStorage.getItem('token') as string
 
-        let json = await response.json()
-        return JSON.stringify(json)
-        
-    } catch {
-        return "{status: 'Conection Error'}"
-    }
-}
+        try {
+            let response = await fetch(API_URL+ApiRoute,
+            {
+                method: 'POST',
+                body: new URLSearchParams ({
+                    'value': value,
+                    'parameter': paramater,
+                    'token': token
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                }
+            })
+            let json = await response.json()
+            return JSON.stringify(json)
 
-export const sendHeroQuestions = async (paramater: string, value: string) => {
-    let ApiRoute = '/heroQuestions'
-    let token = localStorage.getItem('token') as string
+        } catch {
+            return "{status: 'Conection Error'}"
+        }
+    },
 
-    try {
-        let response = await fetch(API_URL+ApiRoute,
-        {
-            method: 'POST',
-            body: new URLSearchParams ({
-                'value': value,
-                'parameter': paramater,
-                'token': token
-            }),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            }
-        })
-        let json = await response.json()
-        return JSON.stringify(json)
+    allHeroAnswer: async () => {
+        let apiRouter = '/allHeroAnswer'
+        let token = localStorage.getItem('token') as string
 
-    } catch {
-        return "{status: 'Conection Error'}"
-    }
-}
+        try {
+            let response = await fetch(API_URL+apiRouter, 
+            {
+                method: 'POST',
+                body: new URLSearchParams ({
+                    'token': token
+                }),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                }
+            })
+            let json = await response.json()
+            return JSON.stringify(json)
 
-export const allHeroAnswer = async () => {
-    let apiRouter = '/allHeroAnswer'
-    let token = localStorage.getItem('token') as string
-
-    try {
-        let response = await fetch(API_URL+apiRouter, 
-        {
-            method: 'POST',
-            body: new URLSearchParams ({
-                'token': token
-            }),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            }
-        })
-        let json = await response.json()
-        return JSON.stringify(json)
-
-    } catch {
-        return "{status: 'Conection Error'}"
-    }
-
+        } catch {
+            return "{status: 'Conection Error'}"
+        }
+    } 
 }

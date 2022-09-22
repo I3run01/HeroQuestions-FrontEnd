@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { HeroQuestionStyle } from "./style"
 import { useNavigate } from "react-router-dom";
-import { sendHeroQuestions } from '../../Auth/Request'
-import { Context } from "../../contexts/Context";
+import { fetchRequest } from "../../Auth/Request";
 
 type Props = {
     question01: string
@@ -22,8 +21,6 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionTwo, setQuestionTwo] = useState<string>('')
     const [questionThree, setQuestionThree] = useState<string>('')
 
-    const {state, dispatch} = useContext(Context)
-
     const navigation = useNavigate()
 
     const sendHeroQuestion = () => {
@@ -33,9 +30,10 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
             return navigation('/login')
         }
 
-        if(questionOne !== '') sendHeroQuestions(parameter01, questionOne)
-        if(questionTwo !== '') sendHeroQuestions(parameter02, questionTwo)
-        if(questionThree !== '') sendHeroQuestions(parameter03, questionThree)
+        if(questionOne !== '') fetchRequest.sendHeroQuestions(parameter01, questionOne)
+        
+        if(questionTwo !== '') fetchRequest.sendHeroQuestions(parameter02, questionTwo)
+        if(questionThree !== '') fetchRequest.sendHeroQuestions(parameter03, questionThree)
     }
 
     useEffect(() => {

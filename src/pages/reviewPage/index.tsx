@@ -2,14 +2,14 @@ import { ReviewPageStyled } from "./style"
 import { useContext, useEffect } from "react"
 import { Context } from "../../contexts/Context"
 import { useNavigate } from "react-router-dom"
-import { allHeroAnswer } from '../../Auth/Request'
+import { fetchRequest } from "../../Auth/Request"
 
 export const ReviewPage = () => {
     const {state, dispatch} = useContext(Context)
     const navigate = useNavigate()
 
     let getHeroInformation = async () => {
-        let response = await allHeroAnswer()
+        let response = await fetchRequest.allHeroAnswer()
         let json = JSON.parse(response)
 
         dispatch({
