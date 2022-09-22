@@ -9,8 +9,8 @@ export const fetchRequest = {
             {
                 method: 'POST',
                 body: new URLSearchParams ({
-                    'email': email,
-                    'password': password,
+                    email: email,
+                    password: password,
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -34,8 +34,8 @@ export const fetchRequest = {
             {
                 method: 'POST',
                 body: new URLSearchParams ({
-                    'email': email,
-                    'password': password,
+                    email: email,
+                    password: password,
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -61,7 +61,7 @@ export const fetchRequest = {
             {
                 method: 'POST',
                 body: new URLSearchParams ({
-                    'token': token,
+                    token: token,
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -85,9 +85,9 @@ export const fetchRequest = {
             {
                 method: 'POST',
                 body: new URLSearchParams ({
-                    'value': value,
-                    'parameter': paramater,
-                    'token': token,
+                    value: value,
+                    parameter: paramater,
+                    token: token,
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -110,7 +110,7 @@ export const fetchRequest = {
             {
                 method: 'POST',
                 body: new URLSearchParams ({
-                    'token': token
+                    token: token
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
