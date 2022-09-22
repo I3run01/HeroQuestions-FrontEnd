@@ -21,29 +21,34 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
     const [questionOne, setQuestionOne] = useState<string>('')
     const [questionTwo, setQuestionTwo] = useState<string>('')
     const [questionThree, setQuestionThree] = useState<string>('')
-
     const {state,  dispatch} = useContext(Context)
-
     const navigate = useNavigate()
 
     const sendHeroQuestion = () => {
-        
         if(!localStorage.getItem('token')) {
             alert('Faça o login antes de prosseguir')
             return navigate('/login')
         }
-
         
-
         if(questionOne !== '') {
             fetchRequest.sendHeroQuestions(parameter01, questionOne)
 
-            dispatch({
-                type: 'changeHeroName',
-                payload: {
-                    heroName: `${questionOne}`
-                }
-            })
+            if(parameter01 === 'heroName') {
+                dispatch({
+                    type: 'changeHeroName',
+                    payload: {
+                        heroName: questionOne
+                    }
+                })
+            } else if(parameter01 === 'heroLocomotion') {
+                dispatch({
+                    type: 'changeHeroLocomotion',
+                    payload: {
+                        heroLocomotion: questionOne
+                    }
+                })
+            }
+            
         }
         if(questionTwo !== '')  fetchRequest.sendHeroQuestions(parameter02, questionTwo)
         if(questionThree !== '') fetchRequest.sendHeroQuestions(parameter03, questionThree)
