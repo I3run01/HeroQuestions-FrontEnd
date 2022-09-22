@@ -90,22 +90,6 @@ export const fetchRequest = {
                 parameter: paramater,
                 token: token,
             }))
-
-            /*
-            let response = await fetch(API_URL+ApiRoute,
-            {
-                method: 'POST',
-                body: new URLSearchParams ({
-                    value: value,
-                    parameter: paramater,
-                    token: token,
-                }),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-                }
-            })
-            let json = await response.json()
-            */
             return JSON.stringify(json)
         } catch {
             return "{status: 'Conection Error'}"
