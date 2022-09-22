@@ -30,27 +30,8 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
             return navigate('/login')
         }
         
-        if(questionOne !== '') {
-            fetchRequest.sendHeroQuestions(parameter01, questionOne)
-
-            if(parameter01 === 'heroName') {
-                dispatch({
-                    type: 'changeHeroName',
-                    payload: {
-                        heroName: questionOne
-                    }
-                })
-            } else if(parameter01 === 'heroLocomotion') {
-                dispatch({
-                    type: 'changeHeroLocomotion',
-                    payload: {
-                        heroLocomotion: questionOne
-                    }
-                })
-            }
-            
-        }
-        if(questionTwo !== '')  fetchRequest.sendHeroQuestions(parameter02, questionTwo)
+        if(questionOne !== '') fetchRequest.sendHeroQuestions(parameter01, questionOne)
+        if(questionTwo !== '') fetchRequest.sendHeroQuestions(parameter02, questionTwo)
         if(questionThree !== '') fetchRequest.sendHeroQuestions(parameter03, questionThree)
     }
 
