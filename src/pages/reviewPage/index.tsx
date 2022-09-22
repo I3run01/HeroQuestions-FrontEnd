@@ -9,8 +9,12 @@ export const ReviewPage = () => {
     const navigate = useNavigate()
 
     let getHeroInformation = async () => {
+
+        /*
         let response = await fetchRequest.allHeroAnswer()
         let json = JSON.parse(response)
+
+        
 
         dispatch({
             type: 'changeHeroName',
@@ -53,6 +57,7 @@ export const ReviewPage = () => {
                 heroSuperPower: json.heroQuestions.heroSuperPower
             }
         })
+        */
     }
 
     useEffect(() => {

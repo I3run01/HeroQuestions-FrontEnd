@@ -87,7 +87,7 @@ export const fetchRequest = {
                 body: new URLSearchParams ({
                     'value': value,
                     'parameter': paramater,
-                    'token': token
+                    'token': token,
                 }),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'

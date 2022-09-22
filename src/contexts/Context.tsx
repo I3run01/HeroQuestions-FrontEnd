@@ -1,11 +1,8 @@
 import { createContext, useReducer, useEffect } from "react";
-
 import { userType, userInicialState, userReducer } from "../reducers/userReducer";
 import { heroQuestionsType, heroQuestionsInicialState, heroQuestionsReducer } from '../reducers/heroQuestionsReducer'
-
 import { reducerActionType } from "../types/reducerActionsType";
-
-import { TokenValidation } from '../Auth/Request'
+import {fetchRequest} from '../Auth/Request'
 
 type initialStateType = {
     user: userType
@@ -39,7 +36,7 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
     const [state, dispatch] = useReducer(mainReducer, initialState)
 
     useEffect(()=>  {
-        TokenValidation(localStorage.getItem('token') ? localStorage.getItem('token') as string : 'generic' )
+        fetchRequest.TokenValidation()
         .then((response)=> JSON.parse(response))   
         .then((json)=>{
             if(json.user) {
