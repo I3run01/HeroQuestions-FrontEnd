@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com'
 
 export const fetchRequest = {
@@ -80,7 +82,16 @@ export const fetchRequest = {
         let ApiRoute = '/heroQuestions'
         let token = localStorage.getItem('token') as string
 
+        
         try {
+            
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                value: value,
+                parameter: paramater,
+                token: token,
+            }))
+
+            /*
             let response = await fetch(API_URL+ApiRoute,
             {
                 method: 'POST',
@@ -94,8 +105,8 @@ export const fetchRequest = {
                 }
             })
             let json = await response.json()
+            */
             return JSON.stringify(json)
-
         } catch {
             return "{status: 'Conection Error'}"
         }
