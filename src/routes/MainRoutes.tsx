@@ -7,6 +7,7 @@ import { Page02 } from "../pages/page02"
 import { RequireAuth } from "../Auth/RequireAuth"
 import { ReviewPage } from "../pages/reviewPage"
 import { NotFounded } from "../pages/NotFounded"
+import { PingPage } from "../pages/Ping"
  
 export const MainRoutes = () => {
 
@@ -18,6 +19,8 @@ export const MainRoutes = () => {
         {path: '/page01', element: <RequireAuth><Page01/></RequireAuth>},
         {path: '/page02', element: <RequireAuth><Page02/></RequireAuth>},
         {path: '/reviewPage', element: <RequireAuth><ReviewPage/></RequireAuth>},
-        {path: '*' , element: <NotFounded/>}
+        {path: '/ping', element: <PingPage/>},
+        {path: '*' , element: <NotFounded/>},
+        
     ])
 }
