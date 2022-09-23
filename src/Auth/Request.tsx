@@ -18,7 +18,7 @@ export const fetchRequest = {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
             })
-    
+    1
             let json = await response.json()
             localStorage.setItem('token', json.token)
             return JSON.stringify(json)
