@@ -12,9 +12,8 @@ import { PingPage } from "../pages/Ping"
 export const MainRoutes = () => {
 
     return useRoutes([
-        
-        {path: '/login', element: <Login/>},
         {path: '/', element: <Home/>},
+        {path: '/login', element: <Login/>},
         {path: '/signup', element: <SignUP/>},
         {path: '/page01', element: <RequireAuth><Page01/></RequireAuth>},
         {path: '/page02', element: <RequireAuth><Page02/></RequireAuth>},
