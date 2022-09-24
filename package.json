@@ -6,8 +6,6 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "serve": "vite preview",
-    "test": "jest",
     "update": "git add . git commit -m 'c' git push origin to main"
   },
   "dependencies": {
