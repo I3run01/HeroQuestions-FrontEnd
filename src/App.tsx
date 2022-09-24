@@ -1,8 +1,12 @@
 import { MainRoutes } from "./routes/MainRoutes"
+import { GlobalStyle } from './GlobalStyle'
 
 function App() {
   return (
-    <MainRoutes/>
+    <GlobalStyle>
+      <MainRoutes/>
+    </GlobalStyle>
+    
   )
 }
 
