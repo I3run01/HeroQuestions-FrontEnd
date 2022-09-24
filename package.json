@@ -11,29 +11,20 @@
     "update": "git add . git commit -m 'c' git push origin to main"
   },
   "dependencies": {
-    "aos": "^3.0.0-beta.6",
     "axios": "^0.27.2",
+    "qs": "^6.11.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.3.0",
-    "react-scroll": "^1.8.7"
+    "react-router-dom": "^6.4.1",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@types/aos": "^3.0.4",
-    "@types/jest": "^28.1.7",
+    "@types/styled-components": "^5.1.26",
+    "@types/qs": "^6.9.7",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/react-scroll": "^1.8.4",
-    "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^1.3.0",
-    "jest": "^28.1.3",
-    "styled-components": "^5.3.5",
-    "ts-jest": "^28.0.8",
-    "ts-node": "^10.9.1",
     "typescript": "^4.6.3",
-    "vite": "^2.9.9"
+    "vite": "^2.9.15"
   }
 }
-
