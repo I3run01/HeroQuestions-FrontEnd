@@ -56,7 +56,7 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
                 localStorage.setItem('state', state.user.user)
             }
         })
-    })
+    },[])
     
 
     return (

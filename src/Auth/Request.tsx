@@ -83,9 +83,9 @@ export const fetchRequest = {
         let token = localStorage.getItem('token') as string
 
         let json = await axios.post(API_URL+ApiRoute, new URLSearchParams(JSON.stringify({
-            "value": value,
-            "parameter": paramater,
-            "token": token,
+            value: value,
+            parameter: paramater,
+            token: token,
         })))
         return JSON.stringify(json)
     },
