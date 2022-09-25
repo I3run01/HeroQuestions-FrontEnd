@@ -33,6 +33,7 @@ const mainReducer = (state: initialStateType, action: reducerActionType) => ({
 
 export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     
+    
     const [state, dispatch] = useReducer(mainReducer, initialState)
 
     useEffect(()=>  {
@@ -56,7 +57,7 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
                 localStorage.setItem('state', state.user.user)
             }
         })
-    },[])
+    })
     
 
     return (
