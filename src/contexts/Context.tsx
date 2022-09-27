@@ -38,7 +38,7 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
 
     useEffect(()=>  {
         fetchRequest.TokenValidation()
-        .then((response)=> JSON.parse(response))   
+        .then((response)=> JSON.parse('response'))   
         .then((json)=>{
             if(json.user) {
                 
