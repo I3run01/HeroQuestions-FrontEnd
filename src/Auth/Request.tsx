@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = 'http://heroquestions-env.eba-ttxwjjpe.sa-east-1.elasticbeanstalk.com'
+const API_URL = 'http://localhost:4000'
 
 export const fetchRequest = {
     SignIn: async (email: string, password: string) => {
