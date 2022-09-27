@@ -31,13 +31,13 @@ export const HerosQuestions = ({question01,parameter01,question02,parameter02,qu
         }
         
         if(questionOne != '') {
-            await fetchRequest.sendHeroQuestions(parameter01, questionOne)  
+            fetchRequest.sendHeroQuestions(parameter01, questionOne)  
         }
         if(questionTwo != '') {
-            await fetchRequest.sendHeroQuestions(parameter02, questionTwo)
+            fetchRequest.sendHeroQuestions(parameter02, questionTwo)
         }
         if(questionThree != '') {
-            await fetchRequest.sendHeroQuestions(parameter03, questionThree)
+            fetchRequest.sendHeroQuestions(parameter03, questionThree)
         }
         navigate(nextPage)
     }

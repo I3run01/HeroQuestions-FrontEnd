@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = 'http://localhost:4000'
+const API_URL = 'http://heroquestionsbackend-env.eba-vzyspjgy.sa-east-1.elasticbeanstalk.com'
 
 export const fetchRequest = {
     SignIn: async (email: string, password: string) => {
@@ -79,15 +79,18 @@ export const fetchRequest = {
     },
 
     sendHeroQuestions: async (paramater: string, value: string) => {
+
         let ApiRoute = '/heroQuestions'
         let token = localStorage.getItem('token') as string
 
-        let json = await axios.post(API_URL+ApiRoute, new URLSearchParams(JSON.stringify({
+        
+        let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
             value: value,
             parameter: paramater,
             token: token,
-        })))
+        }))
         return JSON.stringify(json)
+        
     },
 
     allHeroAnswer: async () => {
