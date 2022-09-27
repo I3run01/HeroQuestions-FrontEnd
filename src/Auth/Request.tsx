@@ -7,8 +7,14 @@ export const fetchRequest = {
         let ApiRoute = '/register'
 
         try {
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                "email": email,
+                "password": password,
+            }))
+
+            /*
             let response = await fetch(API_URL+ApiRoute,
-            {
+            
                 method: 'POST',
                 body: new URLSearchParams ({
                     email: email,
@@ -18,9 +24,10 @@ export const fetchRequest = {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
             })
-    1
             let json = await response.json()
-            localStorage.setItem('token', json.token)
+            */
+            console.log(json)
+            localStorage.setItem('token', json.data.token)
             return JSON.stringify(json)
      
         } catch {
@@ -32,6 +39,12 @@ export const fetchRequest = {
         let ApiRoute = '/login'
 
         try {
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                "email": email,
+                "password": password,
+            }))
+            //console.log(json)
+            /*
             let response = await fetch(API_URL+ApiRoute,
             {
                 method: 'POST',
@@ -43,10 +56,11 @@ export const fetchRequest = {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
             })
-    
             let json = await response.json()
-            localStorage.setItem('token', json.token)
-            return JSON.stringify(json)
+            */
+
+            localStorage.setItem('token', json.data.token)
+            return JSON.stringify(json.data)
      
         } catch {
             return "{status: 'Conection Error'}"
@@ -59,6 +73,11 @@ export const fetchRequest = {
         let token = localStorage.getItem('token') as string
 
         try {
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                "token": token,
+            }))
+
+            /*
             let response = await fetch(API_URL+ApiRoute,
             {
                 method: 'POST',
@@ -69,9 +88,10 @@ export const fetchRequest = {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
                 },
             })
-    
             let json = await response.json()
-            return JSON.stringify(json)
+            */
+            
+            return JSON.stringify(json.data)
             
         } catch {
             return "{status: 'Conection Error'}"
@@ -85,11 +105,19 @@ export const fetchRequest = {
 
         try {
             let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
-                value: value,
-                parameter: paramater,
-                token: token,
+                "value": value,
+                "parameter": paramater,
+                "token": token,
             }))
-            return JSON.stringify(json)
+            /*
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                "value": value,
+                "parameter": paramater,
+                "token": token,
+            }))
+            */
+            return JSON.stringify(json.data)
+            
         } catch {
             return "{status: 'Conection Error'}"
         }
@@ -114,8 +142,8 @@ export const fetchRequest = {
                 }
             })
             let json = await response.json()
-            return JSON.stringify(json)
 
+            return JSON.stringify(json)
         } catch {
             return "{status: 'Conection Error'}"
         }
