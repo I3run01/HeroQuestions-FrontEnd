@@ -49,7 +49,7 @@ export const SignUP = () => {
         if(!email || !password || !repPassword) return alert('Todos os campos devem estar preenchidos ')
         if(emailValidation && matchPassword) {
 
-            let request = await fetchRequest.SignIn(email, password)
+            let request = await fetchRequest.SignUp(email, password)
             let json = JSON.parse(request)
 
             if(json.status) {

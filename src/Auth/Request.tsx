@@ -3,7 +3,7 @@ import axios from "axios"
 const API_URL = 'http://heroquestionsbackend-env.eba-vzyspjgy.sa-east-1.elasticbeanstalk.com'
 
 export const fetchRequest = {
-    SignIn: async (email: string, password: string) => {
+    SignUp: async (email: string, password: string) => {
         let ApiRoute = '/register'
 
         try {
