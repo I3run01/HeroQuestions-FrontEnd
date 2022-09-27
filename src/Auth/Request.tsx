@@ -11,7 +11,6 @@ export const fetchRequest = {
                 "email": email,
                 "password": password,
             }))
-            console.log(json)
             localStorage.setItem('token', json.data.token)
             return JSON.stringify(json)
      
