@@ -127,10 +127,15 @@ export const fetchRequest = {
     },
 
     allHeroAnswer: async () => {
-        let apiRouter = '/allHeroAnswer'
+        let ApiRoute = '/allHeroAnswer'
         let token = localStorage.getItem('token') as string
 
         try {
+            let json = await axios.post(API_URL+ApiRoute, new URLSearchParams({
+                "token": token
+            }))
+
+            /*
             let response = await fetch(API_URL+apiRouter, 
             {
                 method: 'POST',
@@ -142,8 +147,8 @@ export const fetchRequest = {
                 }
             })
             let json = await response.json()
-
-            return JSON.stringify(json)
+            */
+            return JSON.stringify(json.data)
         } catch {
             return "{status: 'Conection Error'}"
         }
