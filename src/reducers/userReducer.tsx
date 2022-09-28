@@ -1,7 +1,7 @@
 import { reducerActionType } from "../types/reducerActionsType";
 
 export type userType = {
-    user: object | null
+    user: boolean | null
 }
 
 export const userInicialState: userType = {

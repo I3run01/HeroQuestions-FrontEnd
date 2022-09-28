@@ -22,7 +22,7 @@ export const Login = () => {
             dispatch({
                 type: 'CHANGE_USER',
                 payload: {
-                    user: {email: email}
+                    user: true
                 }
             })
             

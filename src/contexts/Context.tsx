@@ -45,7 +45,7 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
                 dispatch({
                     type: 'CHANGE_USER',
                     payload: {
-                        user: {email: json.user}
+                        user: true
                     }
                 })
 

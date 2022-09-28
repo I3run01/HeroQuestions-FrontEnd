@@ -54,6 +54,14 @@ export const SignUP = () => {
 
             if(json.status) {
                 console.log(json)
+
+                dispatch({
+                    type: 'CHANGE_USER',
+                    payload: {
+                        user: true
+                    }
+                })
+                
                 return navigate('/page01')
             } alert('erro ao criar um usuário')
         }
