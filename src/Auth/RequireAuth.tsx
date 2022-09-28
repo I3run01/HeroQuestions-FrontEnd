@@ -10,7 +10,7 @@ type Props = {
 export const RequireAuth = ({children}: Props) =>  {
     const {state, dispatch} = useContext(Context)
 
-    if(!state.user.user) {
+    if(!state.loginStatus.loginStatus) {
         return <Login/>
     }else return children
 }
