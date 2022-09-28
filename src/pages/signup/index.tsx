@@ -56,9 +56,9 @@ export const SignUP = () => {
                 console.log(json)
 
                 dispatch({
-                    type: 'CHANGE_USER',
+                    type: 'change_loginStatus',
                     payload: {
-                        user: true
+                        loginStatus: true
                     }
                 })
                 

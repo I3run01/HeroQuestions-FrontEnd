@@ -1,11 +1,11 @@
 import { createContext, useReducer, useEffect } from "react";
-import { userType, userInicialState, userReducer } from "../reducers/userReducer";
+import { loginStatusType, userInicialState, userReducer } from "../reducers/loginStatusReducer";
 import { heroQuestionsType, heroQuestionsInicialState, heroQuestionsReducer } from '../reducers/heroQuestionsReducer'
 import { reducerActionType } from "../types/reducerActionsType";
 import {fetchRequest} from '../Auth/Request'
 
 type initialStateType = {
-    user: userType
+    loginStatus: loginStatusType
     heroQuestions: heroQuestionsType
 } //Change Here
 
@@ -15,7 +15,7 @@ type ContextType = {
 }
 
 const initialState = {
-    user: userInicialState,
+    loginStatus: userInicialState,
     heroQuestions: heroQuestionsInicialState
 } //Change Here
 
@@ -27,7 +27,7 @@ export const Context = createContext<ContextType>({
 })
 
 const mainReducer = (state: initialStateType, action: reducerActionType) => ({
-    user: userReducer(state.user, action),
+    loginStatus: userReducer(state.loginStatus, action),
     heroQuestions: heroQuestionsReducer(state.heroQuestions, action)
 }) //Change Here
 
@@ -43,18 +43,11 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
             if(json.user) {
                 
                 dispatch({
-                    type: 'CHANGE_USER',
+                    type: 'change_loginStatus',
                     payload: {
-                        user: true
+                        loginStatus: true
                     }
                 })
-
-                localStorage.setItem('user', json.user)
-                localStorage.setItem('state', state.user.user)
-
-            } else {
-                localStorage.setItem('user', json.user)
-                localStorage.setItem('state', state.user.user)
             }
         })
     },[])
