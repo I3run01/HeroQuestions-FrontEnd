@@ -48,6 +48,13 @@ export const ContextProvider: React.FC<{children: React.ReactNode}> = ({children
                         loginStatus: true
                     }
                 })
+            } else {
+                dispatch({
+                    type: 'change_loginStatus',
+                    payload: {
+                        loginStatus: false
+                    }
+                })
             }
         })
     },[])
