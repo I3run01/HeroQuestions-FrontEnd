@@ -1,11 +1,11 @@
 import { reducerActionType } from "../types/reducerActionsType";
 
 export type loginStatusType = {
-    loginStatus: boolean | null
+    loginStatus: boolean
 }
 
 export const userInicialState: loginStatusType = {
-    loginStatus: null
+    loginStatus: false
 }
 
 export const userReducer = (state: loginStatusType, action: reducerActionType) => {
