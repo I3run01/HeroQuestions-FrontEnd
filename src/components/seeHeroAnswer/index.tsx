@@ -7,7 +7,6 @@ export const HeroAnswer = () => {
     const {state, dispatch} = useContext(Context)
 
     let getHeroInformation = async () => {
-
         
         let response = await fetchRequest.allHeroAnswer()
         let json = JSON.parse(response)
