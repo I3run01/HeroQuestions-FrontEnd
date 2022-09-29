@@ -12,7 +12,7 @@ export const fetchRequest = {
                 "password": password,
             }))
             localStorage.setItem('token', json.data.token)
-            return JSON.stringify(json)
+            return JSON.stringify(json.data)
      
         } catch {
             return "{status: 'Conection Error'}"

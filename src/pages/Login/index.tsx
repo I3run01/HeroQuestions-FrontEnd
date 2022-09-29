@@ -17,15 +17,12 @@ export const Login = () => {
         let json = JSON.parse(request)
 
         if(json.status) {
-            console.log(json)
-
             dispatch({
                 type: 'change_loginStatus',
                 payload: {
                     loginStatus: true
                 }
             })
-            
             return navigate('/page01')
         } alert('Usuário/senha incorreto(s)')
     } 
